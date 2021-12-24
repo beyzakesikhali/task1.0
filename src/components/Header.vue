@@ -1,48 +1,75 @@
 <template>
- <div class="header col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex flex-column ">
-    <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex"  id="first-header">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 represatantive">
-        <span class="text-blue"><i class="fas fa-user-friends"></i> Müşteri Temsilcisi: </span>
-        <span class="represatantive-name text-black"> {{accountName}}</span>
-        <span class="phone"><i class="fas fa-phone-square represatantive-phone"></i> 0555 555 55 55 </span>
-      </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link menu-text" href="#" v-for="index in menu" :key="index">{{index}} <span class="sr-only"></span></a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <hr />
-    <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex"  id="second-header">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
-   <img v-bind:src="require('/src/assets/' + imgIst)"  />
-      </div>
+  <b-col class="header d-flex flex-column" sm="12" xl="12" md="12" lg="12">
+    <b-container class="first-header">
+      <b-container fluid class="first-header-fluid" >
+        <b-row>
+          <b-col class="represatantive m-0 p-0" sm="5" md="5" xl="5" lg="5">
+            <span class="text-blue"><i class="fas fa-user-friends"></i> Müşteri Temsilcisi: </span>
+            <span class="represatantive-name text-black"> {{accountName}}</span>
+            <span class="phone"><i class="fas fa-phone-square represatantive-phone"></i> 0555 555 55 55 </span>
+          </b-col>
+    
+            <b-col class="header-menu d-flex p-0 m-0 justify-content-end" sm="12" md="12" xl="7" lg="7">
+              <b-row>
+  
+                <b-navbar type="ligth" variant="ligth" class="p-0">
+                <b-navbar-nav>
+                <b-nav-item href="#" v-for="index in menu" :key="index" class="navbar-itemmm">{{index}} </b-nav-item>
+                </b-navbar-nav>
+                </b-navbar>
+              </b-row>
+            </b-col>
+      </b-row>
+       <b-navbar toggleable type="light" variant="light" class="mobile-menu">
+    <b-navbar-brand href="#" class="mobile-menu-navbar-brand">Menu</b-navbar-brand>
 
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+    <b-navbar-toggle target="navbar-toggle-collapse">
+      <template #default="{ expanded }">
+        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+        <b-icon v-else icon="chevron-bar-down"></b-icon>
+      </template>
+    </b-navbar-toggle>
 
-      <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text text-primary search-box" ><i class="fas fa-search search-icon"></i></span>
-  </div>
-  <input type="text" class="form-control" placeholder="Marka, Model veya Parça adı ara.." aria-label="Marka, Model veya Parça adı ara.." aria-describedby="basic-addon1">
-  <div class="input-group-append">
-    <span class="input-group-text text-primary search-box-text"  >Ara</span>
-  </div>
-</div>
+    <b-collapse id="navbar-toggle-collapse" is-nav>
+      <b-navbar-nav class="ml-auto">
+       <b-nav-item href="#" v-for="index in menu" :key="index" class="navbar-itemmm">{{index}} </b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+    </b-navbar>
+      </b-container>
+    </b-container>
+    <b-col class="d-flex" id="second-header">
+      <b-container>
+        <b-container fluid>
+         <b-col class="m-0 p-0 d-flex justify-content-between flex-xl-row flex-column">
+            <b-col sm="12" md="12" lg="2" xl="2">
+                <img v-bind:src="require('/src/assets/' + imgIst)"  />
+            </b-col>
+            <b-col  sm="12" md="12" xl="6" lg="6" class="search-input-group">
+              <div >
+                <b-input-group>
+                <b-input-group-prepend is-text >
+                  <b-icon icon="search" class="m-1"></b-icon>
+                <b-form-input  placeholder="Marka, Model veya Parça adı ara.."></b-form-input>
+                  <b-input-group-append class="m-0">
+                      <b-button size="sm" text="Button" variant="primary" class="m-0">ARA</b-button>
+                  </b-input-group-append>
+                   </b-input-group-prepend>
+                </b-input-group>
+              </div>
+            </b-col>
+            <b-row class="d-flex justify-content-between " >
+              <b-button  v-on:click="hideText(element,$event)" class="btn btn-account p-0" ><i class="fas fa-user-lock account-icon"></i><span class="account-text"> Hesabım </span><span class="m-n5" id="account-name">{{accountName}}</span></b-button>
+              <b-button  v-on:click="hideText(element,$event)" class="btn btn-cart p-0" ><i class="fas fa-shopping-cart"></i><span class="account-text"> Sepetim </span><span class="m-n5" id="account-name">{{accountName}}</span></b-button>
+            </b-row>
 
-      </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
-      <button v-on:click="hideText(element,$event)" class="btn btn-account" ><i class="fas fa-user-lock account-icon"></i> Hesabım <p id="account-name">{{accountName}}</p></button>
-      <button class="btn btn-cart"><i class="fas fa-shopping-cart cart-icon"></i> Sepetim</button>
-
-      </div>
-    </div>
-  </div>
+            </b-col>  
+          </b-container>
+      </b-container>
+    </b-col>
+  </b-col>
 </template>
+
 <script>
 
 export default {
@@ -80,7 +107,7 @@ export default {
     el:'',
     element:'',
     isToggled:false,
-          imgIst:"istanbul.png",
+          imgIst:"isttt.png",
 
     };
    
@@ -95,18 +122,23 @@ export default {
     font-size:10px
 }
 .header-menu{
-     
+ 
 }
 .menu-text{
     font-size:15px;
+    color:#0f559b!important;
+    font-weight:bold;
 }
-#first-header{
-  padding-top: 15px;
+.first-header{
+  padding-top: 0px;
   margin-left:20px;
+    border-bottom: 2px solid;
+    border-color:#e7e9eb;
+  margin-bottom: 25px!important;
 }
 .represatantive
 {
-  padding-top:inherit;
+  padding-top:0;
 }
 .represatantive-name
 {
@@ -133,23 +165,169 @@ export default {
 
 }
 .btn-account{
-  background-color:#0f559b!important;
-  color:white!important;
-  margin-left:5px!important;
-  height:74%!important;
+  background-color: #0f559b!important;
+    color: white!important;
+    height: 42%!important;
+    width: 7.5rem!important;
+    position: relative;
+    margin-left: 0.25rem!important;
+    margin-right: 0.25rem!important;
+    margin-top: 0.4rem!important;
 }
 
 .btn-cart{
-   background-color:#fff!important;
-  color:#0f559b!important;
-  border:#0f559b solid 1px !important;
-  margin-left:5px!important;
-  line-height:2!important;
-
-
+      color: #0f559b!important;
+    background-color: white!important;
+    height: 42%!important;
+    width: 7.5rem!important;
+    position: relative;
+    margin-left: 0.25rem!important;
+    margin-right: 1rem;
+    margin-top: 0.4rem!important;
 }
+.btn-cart i {
+   position:relative;
+  margin-right:96px!important;
+}
+.btn-account i
+{
+  position:relative;
+  margin-right:96px!important;
+}
+
+
 #account-name{
   font-size:xx-small;
+  margin-top: 13px;
+    position: absolute;
+    margin-left: -85px;
+
+}
+.header-menu >nav{
+  padding:0px!important;
+}
+.header-menu .nav-item
+{
+  padding-top:0!important;
+  padding-right:0.25rem!important;
+  align:right;
+}
+.hr-header{
+  margin:0.5rem 0 1rem 0 !important;
+  position:relative;
+  
+  .navbar-itemmm > a{
+    text-size: 12px!important;
+  }
+}
+ .navbar-ligth .navbar-nav .nav-link{
+      font-size:10px!important;
+
+    }
+    .first-header-fluid{
+      padding-left: 57px!important;
+    }
+    .phone{
+      font-size:12px!important;
+    }
+    .represatantive-name
+    {
+            font-size:12px!important;
+
+    }
+    .account-text
+    {
+      font-size:10px;
+      position: absolute;
+    margin-left: -73px;
+    }
+    .account-icon{  
+      font-size:small;
+    }
+
+    .search-input-group
+    {
+   
+    }
+    .search-input-group .input-group  .input-group-prepend  .input-group-text
+    {
+      background-color: white!important;
+      color:#0f559b!important;
+      padding:0;
+      margin:0;
+      height: 89%!important;
+      font-size:10px;
+
+    }
+  .search-input-group .input-group  .input-group-prepend  .input-group-text > input{
+    border:none!important;
+    height:inherit!important;
+  }
+    .search-input-group .input-group  .input-group-prepend
+    {
+      width:inherit;
+      margin-top:0.50rem!important;
+    }
+     .search-input-group .input-group  .input-group-prepend .input-group-append button
+     {
+       background-color:#0f559b!important;
+      
+     }
+
+     ::-webkit-input-placeholder {
+   font-size: 10px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+      font-size: 10px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+      font-size: 10px;
+}
+
+:-ms-input-placeholder {
+      font-size: 10px;
+}
+
+#second-header{
+  margin-bottom:20px!important;
+  border-bottom:2px solid #0f559b;
+  padding-bottom:20px!important;
+}
+
+.mobile-menu{
+  display:none!important;
+}
+.header-menu{
+  display:block!important;
+}
+.mobile-menu-navbar-brand
+{
+  color:#0f559b!important;
+}
+.mobile-menu
+{
+  color:#0f559b!important;
+}
+@media only screen and (max-width: 600px) {
+  .represatantive {
+    padding:0;
+    margin:0;
+    
+  }
+  .first-header-fluid
+  {
+    padding-left:0!important;
+    margin:0;
+  }
+  .mobile-menu{
+    display:block!important;
+    background-color:#fff!important;
+  }
+  .header-menu{
+    display:none!important;
+  }
 }
 </style>
 

@@ -26,7 +26,7 @@
   <div class="tab-pane fade" id="order-tracking" role="tabpanel" aria-labelledby="order-tracking-tab">div3</div>
 </div>
 
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex  " id="slider-1" >
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex flex-column flex-xl-row flex-md-row flex-lg-row  " id="slider-1" >
     <div class="col-12 col-sm-12 col-md-12 col-xl-3 col-lg-3 d-flex " id="left-search-box">
   <b-card bg-variant="light">
     <b-form-group
@@ -145,8 +145,8 @@ Motor Hacmi
       <a href="#" style="text-decoration:none; font-size:12px"> Tümü > </a>
       </div>
   </div>
-    <b-card-group deck class="col-12 d-flex justify-content-between p-3 m-b-3">
-      <b-card bg-variant="light" header="Debriyaj" class=" homeCard1 text-center text-primary p-5 m-2 col-3">
+    <b-card-group deck class="col-12  d-flex flex-column flex-xl-row justify-content-between p-3 m-b-3">
+      <b-card bg-variant="light" header="Debriyaj" class=" homeCard1 text-center text-primary p-5 m-2 col-xl-3 col-lg-3 col-12 col-md-12">
       <span>  Setlerinde </span>
       <br/>
       
@@ -154,21 +154,21 @@ Motor Hacmi
         <b-card-text class="card-text">%25 İndirim</b-card-text>
       </b-card>
 
-       <b-card bg-variant="light" header="Fren " class="text-center text-primary p-5 m-2 col-3 homeCard2 ">
+       <b-card bg-variant="light" header="Fren " class="text-center text-primary p-5 m-2 col-xl-3 col-lg-3 col-12 col-md-12 homeCard2 ">
  <span>  Disklerinde </span>
       <br/>
       <img v-bind:src="require('/src/assets/' + imgFren)" />
       
         <b-card-text class="card-text">%50 İndirim</b-card-text>      </b-card>
 
-       <b-card bg-variant="light" header="Hava" class="text-center col-3 p-5 m-2 homeCard3">
+       <b-card bg-variant="light" header="Hava" class="text-center col-xl-3 col-lg-3 col-12 col-md-12 p-5 m-2 homeCard3">
         <span>  Filtrelerinde </span>
       <br/>
       <img v-bind:src="require('/src/assets/' + imgHava)" />
       
         <b-card-text class="card-text">%50 İndirim</b-card-text> 
              </b-card>
-         <b-card bg-variant="light" header="Triger" class="text-center col-3 p-5 m-2 homeCard4">
+         <b-card bg-variant="light" header="Triger" class="text-center col-xl-3 col-lg-3 col-12 col-md-12 p-5 m-2 homeCard4">
 <span>  Kayışlarında </span>
       <br/>
       <img v-bind:src="require('/src/assets/' + imgKayis)"/>
@@ -195,11 +195,11 @@ export default {
       carouselItems: [
         {
           id: 1,
-          image: "src/assets/slider.png",
+          image: "src/assets/isttt.png",
         },
         {
           id: 2,
-          image: "https://source.unsplash.com/LAaSoL0LrYs/1920x1080",
+          image: "",
         },
         {
           id: 3,
@@ -234,12 +234,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#myTab button{
-  border-radius:none!important;
-color: #fff;
+#myTab{
+  border:none!important;
 }
+
 .footer{
   background-color:#f8f9fa!important;
+}
+#myTab button{
+  border-radius:0!important;
+  color: #fff;
+    height:100%;
+  transition: 0.3s;
+
 }
 #myTab button:hover
 {
@@ -326,5 +333,23 @@ color: #fff;
       width: 100%;
     height: auto; 
 }
+
+
+     ::-webkit-input-placeholder {
+   font-size: 10px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+      font-size: 10px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+      font-size: 10px;
+}
+
+:-ms-input-placeholder {
+      font-size: 10px;
+}
+
 </style>
 

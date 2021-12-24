@@ -33,8 +33,32 @@ Vue.use(ListGroupPlugin)
 
 import { ButtonGroupPlugin } from 'bootstrap-vue'
 Vue.use(ButtonGroupPlugin)
+
+import { InputGroupPlugin } from 'bootstrap-vue'
+Vue.use(InputGroupPlugin)
+
+import { TabsPlugin } from 'bootstrap-vue'
+Vue.use(TabsPlugin)
+
+import { BIcon } from 'bootstrap-vue'
+Vue.component('b-icon', BIcon)
+
+import { BButton } from 'bootstrap-vue'
+Vue.component('b-button', BButton)
+
 Vue.config.productionTip = false
 
+import { BContainer } from 'bootstrap-vue'
+Vue.component('b-container', BContainer)
+
+import { BNavbar } from 'bootstrap-vue'
+Vue.component('b-navbar', BNavbar)
+
+import { BTabs } from 'bootstrap-vue'
+Vue.component('b-tabs', BTabs)
+
+import { BFormInput } from 'bootstrap-vue'
+Vue.component('b-form-input', BFormInput)
 new Vue({
   render: h => h(App),
   

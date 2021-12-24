@@ -1,30 +1,35 @@
 <template>
-  <div class="main column">
-    <div class="container">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="header col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex flex-column">
+  <div class="main column wrapper">
+  <header>
+   <div class="header col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex flex-column">
         <Header/>
-        </div>
+    </div>
+    </header>
+  <div class="container">
+      <div class="container-fluid">
         <div class="home col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex">
           <Home/>
         </div>
-        </div>
       </div>
-       
-    </div>
-    <div class="ScrollTopComponent">
+  </div>
+  
+  <div class="ScrollTopComponent">
    <ScrollTopComponent>
       <a class="btn btn-light">
         <i class="fas fa-angle-double-up" size="3x" />
       </a>
   </ScrollTopComponent>
   </div>
-   <div class="footer col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex">
-          <Footer/>
-        </div>
+  <footer>
+  <div class="container">
+      <div class="container-fluid">
+           <div class="footer col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 d-flex">
+            <Footer/>
+          </div>
+      </div>
   </div>
-  
+  </footer>
+  </div>
 </template>
 
 <script>
@@ -73,6 +78,10 @@ export default {
   right: 20px;
   cursor: pointer;
 }
-
+.wrapper{
+      width: 100%;
+    position: relative;
+    overflow: hidden
+}
 @import url(//db.onlinewebfonts.com/c/9a1c7b194cdca0a0635c4d1931fc66dd?family=Dharma+Gothic);
 </style>
