@@ -1,6 +1,14 @@
 <template>
-<div class="col-12 col-xl-12 col-lg-12 col-sm-12 col-md-12">
-<ul class="nav nav-tabs justify-content-between" id="myTab" role="tablist">
+<b-col class="d-flex flex-md-column flex-column" xl="12" sm="12" md="12" lg="12">
+<b-card no-body>
+    <b-tabs pills card>
+      <b-tab  v-for="index in tabItems" :key="index"   :title="index" :id="index.indexOf()" active><b-card-text>Tab contents 1</b-card-text></b-tab>
+    </b-tabs>
+  </b-card>
+
+
+
+<ul class="nav nav-tabs d-flex justify-content-between flex-column flex-md-column flex-xl-row flex-lg-row" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active"  v-on:click="showTab()" id="product-search-tab" data-bs-toggle="tab" data-bs-target="#product-search" type="button" role="tab" aria-controls="home" aria-selected="true"><i class="fab fa-searchengin"></i>Ürün Arama </button>
   </li>
@@ -180,7 +188,7 @@ Motor Hacmi
 <Carousel></Carousel>
 </div>
     </div>
-</div>
+</b-col>
 </template>
  
 <script>
@@ -195,7 +203,7 @@ export default {
       carouselItems: [
         {
           id: 1,
-          image: "src/assets/isttt.png",
+          image: "../src/assets/slider1.",
         },
         {
           id: 2,
@@ -206,6 +214,11 @@ export default {
           image: "https://source.unsplash.com/LAaSoL0LrYs/1920x1080",
         }
       ],
+
+       tabItems:
+    [   "Ürün Arama", "Kampanyalar", "Sipariş Takip", "Cari Hesap",
+         "Onlne Ödeme", "Markalar"
+    ],
       imgSlider: "slider1.png",
       imgDebriyaj:"debriyaj.jpg",
       imgHava:"havafiltresi.jpg",
@@ -255,7 +268,7 @@ export default {
 
 #myTab button  i
 {
-  font-size:xx-large;
+  font-size:5rem;
   opacity:0.5;
   padding:10px!important;
 }

@@ -1,20 +1,25 @@
 <template>
   <b-col class="header d-flex flex-column" sm="12" xl="12" md="12" lg="12">
-    <b-container class="first-header">
-      <b-container fluid class="first-header-fluid" >
-        <b-row>
-          <b-col class="represatantive m-0 p-0" sm="5" md="5" xl="5" lg="5">
+    <b-container>
+      <b-container fluid >
+        <b-row class="first-header">
+          <b-col class="d-flex represatantive" sm="12" md="12" xl="6" lg="6">
+          <b-col class="d-flex flex-row" sm="12" md="12" xl="6" lg="6">
+          <b-col sm="12" md="12" xl="9" lg="9"> 
             <span class="text-blue"><i class="fas fa-user-friends"></i> Müşteri Temsilcisi: </span>
             <span class="represatantive-name text-black"> {{accountName}}</span>
-            <span class="phone"><i class="fas fa-phone-square represatantive-phone"></i> 0555 555 55 55 </span>
+            </b-col>
+            <b-col sm="12" md="12" xl="8" lg="8">
+            <span class="phone"><i class="fas fa-phone-square-alt represatantive-phone"></i> 5 555 555 55 55 </span>
+            </b-col>
           </b-col>
-    
-            <b-col class="header-menu d-flex p-0 m-0 justify-content-end" sm="12" md="12" xl="7" lg="7">
+          </b-col>
+           
+            <b-col class="header-menu d-flex" sm="12" md="12" xl="6" lg="6">
               <b-row>
-  
-                <b-navbar type="ligth" variant="ligth" class="p-0">
+                <b-navbar type="ligth" variant="ligth" class="p-0 menu-navbar justify-content-end">
                 <b-navbar-nav>
-                <b-nav-item href="#" v-for="index in menu" :key="index" class="navbar-itemmm">{{index}} </b-nav-item>
+                <b-nav-item href="#" v-for="index in menu" :key="index" class="menu-navbar-item">{{index}} </b-nav-item>
                 </b-navbar-nav>
                 </b-navbar>
               </b-row>
@@ -41,27 +46,31 @@
     <b-col class="d-flex" id="second-header">
       <b-container>
         <b-container fluid>
-         <b-col class="m-0 p-0 d-flex justify-content-between flex-xl-row flex-column">
-            <b-col sm="12" md="12" lg="2" xl="2">
+         <b-col class="d-flex flex-xl-row flex-column justify-content-between">
+            <b-col sm="12" md="12" lg="3" xl="3">
                 <img v-bind:src="require('/src/assets/' + imgIst)"  />
             </b-col>
             <b-col  sm="12" md="12" xl="6" lg="6" class="search-input-group">
               <div >
                 <b-input-group>
                 <b-input-group-prepend is-text >
-                  <b-icon icon="search" class="m-1"></b-icon>
+                  <span><i class="fas fa-search"></i></span>
                 <b-form-input  placeholder="Marka, Model veya Parça adı ara.."></b-form-input>
                   <b-input-group-append class="m-0">
-                      <b-button size="sm" text="Button" variant="primary" class="m-0">ARA</b-button>
+                      <b-button size="sm" text="Button" variant="primary" class="m-0 btn-search">ARA</b-button>
                   </b-input-group-append>
                    </b-input-group-prepend>
                 </b-input-group>
               </div>
             </b-col>
-            <b-row class="d-flex justify-content-between " >
-              <b-button  v-on:click="hideText(element,$event)" class="btn btn-account p-0" ><i class="fas fa-user-lock account-icon"></i><span class="account-text"> Hesabım </span><span class="m-n5" id="account-name">{{accountName}}</span></b-button>
-              <b-button  v-on:click="hideText(element,$event)" class="btn btn-cart p-0" ><i class="fas fa-shopping-cart"></i><span class="account-text"> Sepetim </span><span class="m-n5" id="account-name">{{accountName}}</span></b-button>
-            </b-row>
+            <b-col class="d-flex justify-content-end" sm="12" md="12" xl="3" lg="3" >
+            <b-col class="div-btn-account h-100">
+              <b-button  v-on:click="hideText(element,$event)" class="btn btn-account h-100 p-0" ><span class="d-flex"><span><i class="fas fa-user-lock account-icon"></i></span><span class="d-flex flex-column"><span class="account-text"> Hesabım </span><span class="m-n5" id="account-name">{{accountName}}</span></span></span></b-button>
+              </b-col>
+              <b-col>
+              <b-button  v-on:click="hideText(element,$event)" class="btn btn-cart p-0" ><span class="d-flex"><div class="div-cart"><span class="cart-icon"><i class="fas fa-shopping-cart"></i></span><div class="cart-size"><span class="cart-size-text"> 999</span></div></div><span class="d-flex flex-column"><span class="account-text"> Sepetim </span></span></span></b-button>
+            </b-col>
+            </b-col>
 
             </b-col>  
           </b-container>
@@ -99,15 +108,15 @@ export default {
 
        return {
        menu:
-    [   "Hesabım", "Kargo Takip", "Sipariş Takip", "Parça ve Hizmet Teklifi",
-         "Destek", "Yardım", "İletişim" ,"Blog"
+    [   "HESABIM", "KARGO TAKİP", "SİPARİŞ TAKİP", "PARÇA VE HİZMET TEKLİFİ",
+         "DESTEK", "YARDIM", "İLETİŞİM" ,"BLOG"
     ],
     logoUrl:'slider1.png',
     accountName:'Mehmet Demir',
     el:'',
     element:'',
     isToggled:false,
-          imgIst:"isttt.png",
+          imgIst:"asset_3.png",
 
     };
    
@@ -118,33 +127,24 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .text-blue{
-    color: #0f559b;
-    font-size:10px
+    color: #00549a;
+    font-size:12px;
 }
-.header-menu{
- 
-}
+
 .menu-text{
     font-size:15px;
     color:#0f559b!important;
     font-weight:bold;
 }
 .first-header{
-  padding-top: 0px;
-  margin-left:20px;
-    border-bottom: 2px solid;
-    border-color:#e7e9eb;
+  border-bottom: 2px solid #f1f1f1!important;
   margin-bottom: 25px!important;
 }
 .represatantive
 {
   padding-top:0;
 }
-.represatantive-name
-{
-  margin-left:15px;
-  margin-right:10px;
-}
+
 .represatantive-phone
 {
   color:#0f559b;
@@ -154,9 +154,16 @@ export default {
   padding:0.5rem 0.5em 1rem!important;
   background-color:#fff!important;
 }
+
+
+.btn-search{
+  font-size:12px;
+  font-weight:100;
+}
 .search-icon{
   line-height:inherit!important;
   color:#0f559b!important;
+  font-weight:bold!important;
 }
 .search-box-text{
    padding:0.5rem 0.5em 1rem!important;
@@ -164,43 +171,61 @@ export default {
   background-color:#0f559b!important;
 
 }
+.div-btn-account
+{
+      margin-left: 4rem;
+    margin-right: 0.75rem;
+}
 .btn-account{
   background-color: #0f559b!important;
     color: white!important;
-    height: 42%!important;
-    width: 7.5rem!important;
     position: relative;
-    margin-left: 0.25rem!important;
     margin-right: 0.25rem!important;
-    margin-top: 0.4rem!important;
+    border-radius:0!important;
+    width: 100%;
+    
+}
+
+.btn-account span{
+  padding-left:0.25rem!important;
 }
 
 .btn-cart{
       color: #0f559b!important;
     background-color: white!important;
-    height: 42%!important;
-    width: 7.5rem!important;
     position: relative;
     margin-left: 0.25rem!important;
-    margin-right: 1rem;
-    margin-top: 0.4rem!important;
+    border-radius:0!important;
+    width: 100%;
+    height:100%!important;
+
 }
-.btn-cart i {
-   position:relative;
-  margin-right:96px!important;
+.div-cart{
+position:relative;
+margin-right:1.25rem!important;
 }
-.btn-account i
-{
-  position:relative;
-  margin-right:96px!important;
+.cart-size{
+  border-radius:50%;
+  border:2px solid #f8d875!important;
+  position:absolute;
+  top:-5px;
+  left:18px;
+  font-size:9px;
+  
 }
+
+.cart-icon{
+  font-size:15px!important;
+  margin-right:0.75rem!important;
+  margin-left:0.25rem!important;
+}
+
+
 
 
 #account-name{
-  font-size:xx-small;
-  margin-top: 13px;
-    position: absolute;
-    margin-left: -85px;
+  font-size:10px;
+
 
 }
 .header-menu >nav{
@@ -216,84 +241,104 @@ export default {
   margin:0.5rem 0 1rem 0 !important;
   position:relative;
   
-  .navbar-itemmm > a{
+  .menu-navbar-item > a{
     text-size: 12px!important;
+      color:#0f559b!important;
+  font-weigth:bold;
   }
+  
 }
  .navbar-ligth .navbar-nav .nav-link{
-      font-size:10px!important;
+      font-size:9px!important;
 
     }
-    .first-header-fluid{
-      padding-left: 57px!important;
-    }
+    
     .phone{
       font-size:12px!important;
+      font-weight:bold;
     }
     .represatantive-name
     {
-            font-size:12px!important;
+      font-size:12px!important;
+      font-weight:bold;
 
     }
     .account-text
     {
-      font-size:10px;
-      position: absolute;
-    margin-left: -73px;
+      font-size:12px;
+      font-weight:bold;
+  
     }
     .account-icon{  
-      font-size:small;
+      font-size:12px;
     }
 
-    .search-input-group
-    {
-   
+    .search-input-group{
+      height:100%;
     }
+    .search-input-group >div{
+      width:95%;
+    }
+
     .search-input-group .input-group  .input-group-prepend  .input-group-text
     {
       background-color: white!important;
       color:#0f559b!important;
       padding:0;
       margin:0;
-      height: 89%!important;
-      font-size:10px;
+      font-size:large!important;
+      padding-left:1rem!important;
 
     }
+        .search-input-group .input-group  .input-group-prepend  .input-group-text.b-icon.bi
+        {
+            font-weight:bold!important;
+        }
   .search-input-group .input-group  .input-group-prepend  .input-group-text > input{
     border:none!important;
     height:inherit!important;
+    font-size:  12px!important;
   }
     .search-input-group .input-group  .input-group-prepend
     {
       width:inherit;
-      margin-top:0.50rem!important;
     }
      .search-input-group .input-group  .input-group-prepend .input-group-append button
      {
        background-color:#0f559b!important;
+       line-height:2!important;
+    border-radius:0!important;
+    border:0!important;
       
      }
 
      ::-webkit-input-placeholder {
-   font-size: 10px;
+   font-size: 12px;
+   font-weight:bold; 
+   
+}
+.menu-navbar
+{
+  color:#0f559b!important;
+  font-weigth:bold;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-      font-size: 10px;
+      font-size: 12px;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-      font-size: 10px;
+      font-size: 12px;
 }
 
 :-ms-input-placeholder {
-      font-size: 10px;
+      font-size: 12px;
 }
 
 #second-header{
-  margin-bottom:20px!important;
+  margin-bottom:3rem!important;
   border-bottom:2px solid #0f559b;
-  padding-bottom:20px!important;
+  padding-bottom:3rem!important;
 }
 
 .mobile-menu{
@@ -310,17 +355,23 @@ export default {
 {
   color:#0f559b!important;
 }
+.menu-navbar .navbar-nav .nav-item {
+  padding-right:0px!important;
+  font-weight:bold;
+}
+.menu-navbar .navbar-nav .nav-item .nav-link
+{
+    color:#00549a!important;
+   /* padding-right:0px!important;*/
+
+}
 @media only screen and (max-width: 600px) {
   .represatantive {
     padding:0;
     margin:0;
     
   }
-  .first-header-fluid
-  {
-    padding-left:0!important;
-    margin:0;
-  }
+
   .mobile-menu{
     display:block!important;
     background-color:#fff!important;
@@ -328,6 +379,7 @@ export default {
   .header-menu{
     display:none!important;
   }
+
 }
 </style>
 
