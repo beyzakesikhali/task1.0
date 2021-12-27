@@ -3,35 +3,20 @@
     <b-container>
       <b-container fluid >
         <b-row class="first-header">
-          <b-col class="d-flex represatantive" sm="12" md="12" xl="6" lg="6">
-          <b-col class="d-flex flex-row" sm="12" md="12" xl="6" lg="6">
-          <b-col sm="12" md="12" xl="9" lg="9"> 
+     <b-col sm="1" md="1" xl="1" lg="1">
+     </b-col>
+          <b-col class="represatantive" sm="12" md="12" xl="5" lg="5">
             <span class="text-blue"><i class="fas fa-user-friends"></i> Müşteri Temsilcisi: </span>
             <span class="represatantive-name text-black"> {{accountName}}</span>
-            </b-col>
-            <b-col sm="12" md="12" xl="8" lg="8">
             <span class="phone"><i class="fas fa-phone-square-alt represatantive-phone"></i> 5 555 555 55 55 </span>
-            </b-col>
-          </b-col>
-          </b-col>
-           
-            <b-col class="header-menu d-flex" sm="12" md="12" xl="6" lg="6">
-              <b-row>
-                <b-navbar type="ligth" variant="ligth" class="p-0 menu-navbar justify-content-end">
-                <b-navbar-nav>
-                <b-nav-item href="#" v-for="index in menu" :key="index" class="menu-navbar-item">{{index}} </b-nav-item>
-                </b-navbar-nav>
-                </b-navbar>
-              </b-row>
-            </b-col>
-      </b-row>
-       <b-navbar toggleable type="light" variant="light" class="mobile-menu">
-    <b-navbar-brand href="#" class="mobile-menu-navbar-brand">Menu</b-navbar-brand>
+            <b-col sm="4" md="4" xl="5" lg="5">
+             <b-navbar toggleable type="light" variant="light" class="mobile-menu">
+    <b-navbar-brand href="#" class="mobile-menu-navbar-brand"></b-navbar-brand>
 
     <b-navbar-toggle target="navbar-toggle-collapse">
       <template #default="{ expanded }">
-        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-        <b-icon v-else icon="chevron-bar-down"></b-icon>
+        <b-icon v-if="expanded" icon="x-circle"></b-icon>
+        <b-icon v-else icon="list"></b-icon>
       </template>
     </b-navbar-toggle>
 
@@ -41,15 +26,32 @@
       </b-navbar-nav>
     </b-collapse>
     </b-navbar>
+          </b-col>
+           </b-col>
+            <b-col class="header-menu d-flex" sm="12" md="12" xl="5" lg="5">
+              <b-row>
+                <b-navbar type="ligth" variant="ligth" class="p-0 menu-navbar justify-content-end">
+                <b-navbar-nav>
+                <b-nav-item href="#" v-for="index in menu" :key="index" class="menu-navbar-item">{{index}} </b-nav-item>
+                </b-navbar-nav>
+                </b-navbar>
+              </b-row>
+            </b-col>
+         <b-col sm="1" md="1" xl="1" lg="1">
+     </b-col>
+ 
+      </b-row>
+      
       </b-container>
     </b-container>
     <b-col class="d-flex" id="second-header">
       <b-container>
-        <b-container fluid>
-         <b-col class="d-flex flex-xl-row flex-column justify-content-between">
-            <b-col sm="12" md="12" lg="3" xl="3">
-                <img v-bind:src="require('/src/assets/' + imgIst)"  />
-            </b-col>
+        <b-container fluid class="d-flex flex-md-column flex-column flex-xl-row flex-lg-row">
+         <b-col sm="1" md="1" xl="1" lg="1">
+     </b-col>
+     <b-col sm="4" md="4" xl="2" lg="2">
+           <img v-bind:src="require('/src/assets/' + imgIst)" class="logo"  />
+           </b-col>
             <b-col  sm="12" md="12" xl="6" lg="6" class="search-input-group">
               <div >
                 <b-input-group>
@@ -63,17 +65,28 @@
                 </b-input-group>
               </div>
             </b-col>
-            <b-col class="d-flex justify-content-end" sm="12" md="12" xl="3" lg="3" >
-            <b-col class="div-btn-account h-100">
-              <b-button  v-on:click="hideText(element,$event)" class="btn btn-account h-100 p-0" ><span class="d-flex"><span><i class="fas fa-user-lock account-icon"></i></span><span class="d-flex flex-column"><span class="account-text"> Hesabım </span><span class="m-n5" id="account-name">{{accountName}}</span></span></span></b-button>
-              </b-col>
-              <b-col>
-              <b-button  v-on:click="hideText(element,$event)" class="btn btn-cart p-0" ><span class="d-flex"><div class="div-cart"><span class="cart-icon"><i class="fas fa-shopping-cart"></i></span><div class="cart-size"><span class="cart-size-text"> 999</span></div></div><span class="d-flex flex-column"><span class="account-text"> Sepetim </span></span></span></b-button>
-            </b-col>
-            </b-col>
+            <b-col sm="12" md="12" xl="2" lg="2" class="d-flex">
+                          <b-button  v-on:click="hideText(element,$event)" class="btn btn-account p-0" >
+                          <b-col class="d-flex align-items-center">
+                          <i class="fas fa-user-lock account-icon"></i>
+                          <b-row>
+                          <span class="account-text"> Hesabım </span>
+                          <span class="m-n5" id="account-name">{{accountName}}</span>
+                          </b-row>
+                          </b-col>
+                          </b-button>
 
-            </b-col>  
-          </b-container>
+              <b-button  v-on:click="hideText(element,$event)" class="btn btn-cart p-0" >
+              <span class="d-flex align-item-center justify-content-center"><div class="div-cart"><span class="cart-icon">
+              <i class="fas fa-shopping-cart"></i></span>
+              <div class="cart-size"><span class="cart-size-text"> 999</span>
+              </div></div><span class="d-flex flex-column justify-content-center"><span class="cart-text"> Sepetim </span></span></span></b-button>
+            </b-col>
+                     <b-col sm="1" md="1" xl="1" lg="1">
+     </b-col>
+
+
+          </b-container>  
       </b-container>
     </b-col>
   </b-col>
@@ -116,7 +129,7 @@ export default {
     el:'',
     element:'',
     isToggled:false,
-          imgIst:"asset_3.png",
+          imgIst:"mehmetlogo.png",
 
     };
    
@@ -128,7 +141,7 @@ export default {
 <style scoped>
 .text-blue{
     color: #00549a;
-    font-size:12px;
+    font-size:10px;
 }
 
 .menu-text{
@@ -155,7 +168,6 @@ export default {
   background-color:#fff!important;
 }
 
-
 .btn-search{
   font-size:12px;
   font-weight:100;
@@ -180,7 +192,6 @@ export default {
   background-color: #0f559b!important;
     color: white!important;
     position: relative;
-    margin-right: 0.25rem!important;
     border-radius:0!important;
     width: 100%;
     
@@ -194,7 +205,7 @@ export default {
       color: #0f559b!important;
     background-color: white!important;
     position: relative;
-    margin-left: 0.25rem!important;
+    margin-left: 1.25rem!important;
     border-radius:0!important;
     width: 100%;
     height:100%!important;
@@ -202,7 +213,6 @@ export default {
 }
 .div-cart{
 position:relative;
-margin-right:1.25rem!important;
 }
 .cart-size{
   border-radius:50%;
@@ -224,7 +234,7 @@ margin-right:1.25rem!important;
 
 
 #account-name{
-  font-size:10px;
+  font-size:8px;
 
 
 }
@@ -249,32 +259,36 @@ margin-right:1.25rem!important;
   
 }
  .navbar-ligth .navbar-nav .nav-link{
-      font-size:9px!important;
+      font-size:8px!important;
+      padding-right:0px!important;
 
     }
     
     .phone{
-      font-size:12px!important;
+      font-size:10px!important;
       font-weight:bold;
     }
     .represatantive-name
     {
-      font-size:12px!important;
+      font-size:9px!important;
       font-weight:bold;
+      margin-right:30px;
 
     }
     .account-text
     {
-      font-size:12px;
+      font-size:9px;
       font-weight:bold;
   
     }
     .account-icon{  
       font-size:12px;
+      margin-left:0.5rem;
     }
 
     .search-input-group{
       height:100%;
+      margin-top:3px;
     }
     .search-input-group >div{
       width:95%;
@@ -298,6 +312,7 @@ margin-right:1.25rem!important;
     border:none!important;
     height:inherit!important;
     font-size:  12px!important;
+    color:black!important;
   }
     .search-input-group .input-group  .input-group-prepend
     {
@@ -335,9 +350,9 @@ margin-right:1.25rem!important;
       font-size: 12px;
 }
 
-#second-header{
+#second-header .container .container-fluid{
   margin-bottom:3rem!important;
-  border-bottom:2px solid #0f559b;
+  border-bottom:3px solid #0f559b;
   padding-bottom:3rem!important;
 }
 
@@ -365,6 +380,13 @@ margin-right:1.25rem!important;
    /* padding-right:0px!important;*/
 
 }
+.logo{
+  width:186px!important;
+}
+.cart-text{
+  font-size:12px;
+  font-weight:bold;
+}
 @media only screen and (max-width: 600px) {
   .represatantive {
     padding:0;
@@ -379,6 +401,18 @@ margin-right:1.25rem!important;
   .header-menu{
     display:none!important;
   }
+
+.search-input-group div
+{
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+
+
+.search-input-group div .input-group
+{
+  margin-top:1rem;
+}
 
 }
 </style>

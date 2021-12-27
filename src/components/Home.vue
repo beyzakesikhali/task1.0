@@ -1,49 +1,76 @@
 <template>
-<b-col class="d-flex flex-md-column flex-column" xl="12" sm="12" md="12" lg="12">
-<b-card no-body>
-    <b-tabs pills card>
-      <b-tab  v-for="index in tabItems" :key="index"   :title="index" :id="index.indexOf()" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-    </b-tabs>
-  </b-card>
+<b-col  xl="12" sm="12" md="12" lg="12">
+<b-container>
+        <b-container fluid class="d-flex flex-column">
+        <b-row class="flex-column flex-lg-row flex-xl">
+         <b-col sm="1" md="1" xl="1" lg="1">
+     </b-col>
+<b-col id="myTab" class="d-flex flex-column flex-md-row flex-xl-row flex-lg-row m-0 p-0 justify-content-center" sm="10" md="10" xl="10" lg="10">
+<button class=" col-6 col-xl-2  d-flex justify-content-center"  v-on:click="showTab()" id="product-search-tab" data-bs-toggle="tab" data-bs-target="#product-search" type="button" role="tab" aria-controls="home" aria-selected="true">
+      <i class="fab fa-searchengin"></i>
+      <span>Ürün <b>Arama</b></span>
+    </button>
+   
+ <button class=" col-6 col-xl-2  d-flex justify-content-center" id="campaigns-tab" data-bs-toggle="tab" data-bs-target="#" type="button" role="tab" aria-controls="profile" aria-selected="false">  
+
+      <i class="fas fa-award"></i>
+      <span><b>Kampanyalar</b></span>
+</button>
+    
+  <button class=" col-6 col-xl-2  d-flex justify-content-center"  id="order-tracking-tab" data-bs-toggle="tab" data-bs-target="#order-tracking" type="button" role="tab" aria-controls="order-tracking" aria-selected="false">
+
+    <i class="fas fa-route"></i>
+    <span>Sipariş <b> Takip</b></span>
+    </button>
+
+<button class="col-6 col-xl-2  d-flex justify-content-center" id="btn-3" data-bs-toggle="tab" data-bs-target="#order-tracking" type="button" role="tab" aria-controls="order-tracking" aria-selected="false">
+
+    <i class="fas fa-calculator"></i>
+    <span>Cari <b>Hesap</b></span>
+    </button>
+
+<button class=" col-6 col-xl-2  d-flex justify-content-center" id="btn-4" >
+
+    <i class="far fa-credit-card"></i>
+    <span>Online <b>Ödeme</b></span>
+    </button>
+
+  <button class=" col-6 col-xl-2  d-flex justify-content-center" id="btn-5" data-bs-toggle="tab" data-bs-target="#order-tracking" type="button" role="tab" aria-controls="order-tracking" aria-selected="false">
+
+<i class="fas fa-tags"></i>
+
+    <span><b>Markalar</b></span>
+    </button>
 
 
+</b-col>
 
-<ul class="nav nav-tabs d-flex justify-content-between flex-column flex-md-column flex-xl-row flex-lg-row" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active"  v-on:click="showTab()" id="product-search-tab" data-bs-toggle="tab" data-bs-target="#product-search" type="button" role="tab" aria-controls="home" aria-selected="true"><i class="fab fa-searchengin"></i>Ürün Arama </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="campaigns-tab" data-bs-toggle="tab" data-bs-target="#" type="button" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-award"></i>Kampanyalar</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link"  id="order-tracking-tab" data-bs-toggle="tab" data-bs-target="#order-tracking" type="button" role="tab" aria-controls="order-tracking" aria-selected="false"><i class="fas fa-route"></i>Sipariş Takip</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="btn-3" data-bs-toggle="tab" data-bs-target="#order-tracking" type="button" role="tab" aria-controls="order-tracking" aria-selected="false"><i class="fas fa-calculator"></i>Cari Hesap</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="btn-4" data-bs-toggle="tab" data-bs-target="#order-tracking" type="button" role="tab" aria-controls="order-tracking" aria-selected="false"><i class="far fa-credit-card"></i>Online Ödeme</button>
-  </li>
-   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="btn-5" data-bs-toggle="tab" data-bs-target="#order-tracking" type="button" role="tab" aria-controls="order-tracking" aria-selected="false"><i class="far fa-credit-card"></i>Online Ödeme</button>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent" hidden>
+<b-col sm="1" xl="1" lg="1" md="1">
+</b-col>
+</b-row>
+
+<b-container>
+<b-container fluid>
+<b-row>
+<b-col sm="1" md="1" xl="1" lg="1">
+</b-col>
+     <b-col sm="10" md="10" xl="10" lg="10 m-0 p-0">
+     <div class="tab-content" id="myTabContent" hidden>
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="product-search-tab">Ürün arama (burada vuetable kullanılabilir)</div>
   <div class="tab-pane fade" id="campaigns-tab" role="tabpanel" aria-labelledby="campaigns-tab">div2</div>
   <div class="tab-pane fade" id="order-tracking" role="tabpanel" aria-labelledby="order-tracking-tab">div3</div>
 </div>
 
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex flex-column flex-xl-row flex-md-row flex-lg-row  " id="slider-1" >
-    <div class="col-12 col-sm-12 col-md-12 col-xl-3 col-lg-3 d-flex " id="left-search-box">
-  <b-card bg-variant="light">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex flex-column flex-xl-row flex-md-row flex-lg-row  " id="slider-1" >
+    <div class="col-12 col-sm-12 col-md-12 col-xl-2 col-lg-2 d-flex " id="left-search-box">
+  <b-card bg-variant="light" class="w-100">
     <b-form-group
       label-cols-lg="12"
-      label="Araç Bilgileri İle Arama"
       label-size="lg"
       label-class="font-weight-bold pt-0"
       class="mb-0 text-dark"
     >
+    <span class="search-label">Araç Bilgileri İle Ara</span>
 
 <div class="dropdown show" id="dropdown1">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -120,9 +147,10 @@ Motor Hacmi
     </b-form-group>
   </b-card>
     </div>
-     <div class="col-12 col-sm-12 col-md-12 col-xl-9 col-lg-9 d-flex">
-     
+     <div class="col-12 col-sm-12 col-md-12 col-xl-10 col-lg-10 d-flex">
+    <!-- 
      <div id="main-carousel">
+     
   <b-carousel
     id="carousel-fade"
     style="text-shadow: 0px 0px 2px #000"
@@ -139,7 +167,10 @@ Motor Hacmi
         :img-src="item.image"
       ></b-carousel-slide>
   </b-carousel>
+ 
 </div>
+-->
+           <img v-bind:src="require('/src/assets/' + imgSliderr)" class="logo"  />
 
     </div>
 
@@ -184,16 +215,23 @@ Motor Hacmi
             </b-card>  
       
     </b-card-group>
+      </div>
+     </b-col>
+  
+  </b-row>
+</b-container>
+</b-container>
  <div class="carousel">
 <Carousel></Carousel>
 </div>
-    </div>
+
+    </b-container>
+    </b-container>
 </b-col>
 </template>
  
 <script>
  import Carousel from './Carousel.vue'
-
 export default {
   components: {
     Carousel
@@ -214,12 +252,12 @@ export default {
           image: "https://source.unsplash.com/LAaSoL0LrYs/1920x1080",
         }
       ],
-
        tabItems:
     [   "Ürün Arama", "Kampanyalar", "Sipariş Takip", "Cari Hesap",
          "Onlne Ödeme", "Markalar"
     ],
       imgSlider: "slider1.png",
+      imgSliderr:"sliderr.png",
       imgDebriyaj:"debriyaj.jpg",
       imgHava:"havafiltresi.jpg",
       imgKoltuk:"koltuk.jpg",
@@ -227,7 +265,6 @@ export default {
       imgFooter:"footer.png",
       imgKayis:"kayış.jpg"
     };
-
     
     },
     methods: {
@@ -250,7 +287,10 @@ export default {
 #myTab{
   border:none!important;
 }
-
+.home-tab > .tabs > .card-header{
+    color:white!important;
+    background-color:white!important;
+}
 .footer{
   background-color:#f8f9fa!important;
 }
@@ -259,19 +299,41 @@ export default {
   color: #fff;
     height:100%;
   transition: 0.3s;
-
+  margin-right:0.5rem;
+  padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  padding-top:0.5rem;
+  padding-bottom:0.5rem;
+  align-items:center!important;
+  border:0px!important;
 }
-#myTab button:hover
+#myTab button span{
+margin-left:1rem;
+text-align:center;
+float:center;
+font-size:1rem;
+}
+.logo{
+  width:100%;
+  heigth:auto;
+}
+
+
+#myTab > div >  .nav-item > .nav-link:hover
 {
     height: 115%;
 }
-
 #myTab button  i
 {
-  font-size:5rem;
+  font-size:3rem;
   opacity:0.5;
-  padding:10px!important;
 }
+#left-search-box
+{
+  border: 1px solid #9cc0d9;
+  margin-right: 1rem;
+}
+
 #product-search-tab
 {
   background-color:rgb(25 178 131);
@@ -292,27 +354,58 @@ export default {
 {
   background-color:#9d6cdf;
 }
-
 #btn-5
 {
   background-color: #f56d41;
 }
-
+.search-label
+{
+  padding-bottom:1rem!important;
+  font-weight:bold;
+  margin-left:1rem;
+  font-size:12px;
+}
 #slider-1
 {
   margin-top:3%;
 }
-
 #dropdown1 a, #dropdown2 a , #dropdown3 a, #dropdown4 a, #dropdown5 a, #dropdown6 a {
   color:#a3abb2!important;
   background: #fff;
   width:100%;
   margin:5px;
+  border: 1px solid #b9bfc4;
+  font-size:12px;
+}
+
+#dropdown1 a:after, #dropdown2 a:after , #dropdown3 a:after, #dropdown4 a:after, #dropdown5 a:after, #dropdown6 a:after
+{
+    text-align:right!important;
+    float:right!important;
+    margin-top:0.5rem!important;
+}
+
+.dropdown a
+{
+  text-align:left!important;
+}
+
+element.style {
+}
+<style>
+.pt-0 {
+    padding-top: 0 !important;
+}
+<style>
+.col-form-label{
+  font-weigth:bold!important;
 }
 #search-piece
 {
   width:100%;
   margin :30px 5px 0; 
+  background-color:#0f539a!important;
+  font-size:12px;
 }
 .homeCard1, .homeCard1 > .card-header, .homeCard2, .homeCard2 > .card-header ,.homeCard2 > .card-text
 ,.homeCard3, .homeCard3 > .card-header, .homeCard4, .homeCard4 > .card-header
@@ -325,7 +418,6 @@ export default {
 .homeCard1, .homeCard1 > .card-header
 {
   background:#009a60!important;
-
 }
 .homeCard2, .homeCard2 > .card-header{
    background:#000e1a!important;
@@ -336,7 +428,6 @@ export default {
 .homeCard4, .homeCard4 > .card-header{
    background:#a3abb2!important;
 }
-
 .homeCard1 > .card-header, .homeCard2 > .card-header, 
 .homeCard3 > .card-header , .homeCard4 > .card-header, .card-text
 {
@@ -346,23 +437,28 @@ export default {
       width: 100%;
     height: auto; 
 }
-
-
      ::-webkit-input-placeholder {
    font-size: 10px;
 }
-
 :-moz-placeholder { /* Firefox 18- */
       font-size: 10px;
 }
-
 ::-moz-placeholder {  /* Firefox 19+ */
       font-size: 10px;
 }
-
 :-ms-input-placeholder {
       font-size: 10px;
 }
 
-</style>
+@media only screen and (max-width: 600px) {
+  #myTab button{
+    margin-top:1rem;
+    margin-right:1rem;
+    padding-right:3rem;
+    width:auto!important;
+    height:auto!important;
+  }
+  
+}
 
+</style>

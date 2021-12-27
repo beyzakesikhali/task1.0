@@ -1,7 +1,7 @@
 <template>
     <a @click="scrollTop" v-show="visible" class="bottom-right">
         <slot></slot>
-        Başa Dön
+        <span class="scroll-text">Başa Dön</span>
     </a>
 </template>
 
@@ -43,4 +43,13 @@ export default {
   text-decoration:none;
   z-index:9999!important;
 }
+.scroll-text{
+  font-size:12px;
+}
+@media only screen and (max-width: 600px) {
+  .scroll-text{
+  display:none;
+}
+}
+
 </style>
